@@ -1,8 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     outline: 0;
+    user-select: none;
+    font-family: 'Sora', sans-serif !important;
 }
 body * {
     font-family: 'Inter';
@@ -43,7 +47,7 @@ body {
     box-shadow: rgba(0, 0, 0, 0.05);
     align-items: flex-start;
     padding: 0.5rem;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 #cabecalho ul li a{
@@ -178,10 +182,11 @@ html {
 #form {
     position: absolute;
     top: 15%;
-    width: 100%;
-    display: grid;
-    justify-items: center;
-    justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+
 }
 #form span {
     font-weight: 700;
@@ -191,27 +196,81 @@ html {
     
 }
 
+label{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
 label input {
+    margin-top: -10px;
     font-size: 1em;
 }
 .stylebutton {
+    width: 100%;
     border: 0;
     line-height: 3rem;
     padding: 0 20px;
-    color: #E0E0E0;
+    color: #e3e3e3;
     font-family: 'Inter';
     font-weight: 700;
     border-radius: 8px;
     cursor: pointer;
     background-color: #d45208;
+    margin-bottom: 80px;
 }
 .stylebutton:hover {
     border: 1px solid #FFF;
     background-color: #FF8000;
 }
 #identificacao {
-    border: 0;
+    width: 100%;
     line-height: 2rem;
-    padding: 0 20px;
-    border-radius: 3px;
+    padding: 10px 25px;
+    border: .5px solid #d4530861;
+    border-radius: 10px;
+}
+
+#identificacaoMetade{
+    width: 100%;
+    line-height: 2rem;
+    padding: 10px 25px;
+    border: .5px solid #d4530861;
+    border-radius: 10px;  
+}
+
+
+.containerFomrs{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.inputDateHours{
+    display: flex;
+}
+
+
+/*-------------------------------------------------------------------------------*/
+#legenda {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    height: 5.8rem;
+    color: rgb(16, 16, 16) !important;
+}
+#legenda h1 {
+    font-family: 'Inter';
+    font-size: 3rem;
+    font-weight: 700;
+}
+#legenda p {
+    font-size: 1rem;
+    font-family: 'Inter';
+    font-weight: 500;
+    text-align: justify;
 }

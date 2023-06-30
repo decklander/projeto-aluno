@@ -1,11 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     outline: 0;
-}
-body * {
-    font-style: normal;
+    user-select: none;
+    font-family: 'Sora', sans-serif !important;
 }
 
 body {
@@ -13,6 +14,8 @@ body {
     background-position: top center;
     background-size: cover;
     font-size: 1.6rem;
+    width: 100%;
+    height: 100%;
 }
 .boxshadow .button {
     -webkit-box-shadow: 0px 0px 5px #666;
@@ -35,15 +38,27 @@ body {
 #cabecalho {
     box-sizing: border-box;
     display: flex;
+    align-items: center;
     position: absolute;
     width: 100%;
     height: 4rem;
     background: #D55208 top center/cover;
     box-shadow: rgba(0, 0, 0, 0.05);
-    align-items: flex-start;
     padding: 0.5rem;
-    justify-content: space-between;
+    justify-content: space-around;
 }
+
+::-webkit-scrollbar{
+    width: 5px;
+    height: 8px;
+    background-color: #aaa; /* or add it to the track */
+}
+
+::-webkit-scrollbar-thumb{
+    background: #D55208;
+}
+
+
 
 #cabecalho ul li a{
     font-family: 'Inter';
@@ -51,15 +66,12 @@ body {
     font-size: 1rem;
     color: white;
     text-decoration: none;
-    transition: background 0.2s;
 }
 #cabecalho ul li a:hover {
-    border: 1px solid #E0E0E0;
     background: #d45208;
 }
 #logo-desktop img{
     width: 140px;
-    margin: 0 4px 4px 0;
 }
 #logo-mobile {
     display: none;
@@ -89,7 +101,6 @@ body {
 
     #logo-mobile img {
         width: 52px;
-        margin-bottom: 5px;
     }
 
     #menu-navegacao {
@@ -133,15 +144,20 @@ body {
         margin-top: 3.9px;
     }
     #icone-menu {
-        color: #E0E0E0;
+        color: #fdfdfd;
         border-top: 8px solid;
         width: 35px;
+        border-radius: 3px 3px 3px 3px !important;
         margin-bottom: 5px
+    }
+    #icone-menu::after{
+        border-radius: 0px 0px 3px 3px;
     }
     #icone-menu::after, #icone-menu::before {
         content: '';
         display: block;
         width: 35px;
+
         height: 8px;
         background: currentColor;
         margin-top: 5px;
@@ -153,11 +169,16 @@ body {
     }
     #navegacao.active #icone-menu::before {
         transform: rotate(135deg);
+        border-radius: 3px;
     }
     #navegacao.active #icone-menu::after {
         transform: rotate(-135deg);
+        border-radius: 3px;
         top: -12px;
     }
+}
+#logo-mobile img {
+    width: 55%;
 }
 
 @media (max-width: 425px) {
@@ -169,11 +190,9 @@ body {
 html {
     font-size: 75%;
 }
-#logo-mobile img {
-    width: 20%;
-}
 
 .photo img {
+    border-radius: 50%;
     width: 95%;
 }
 }
@@ -182,23 +201,25 @@ html {
 /*-------------------------------------------------------------------------------*/
 #legenda {
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
     top: 4.5rem;
-    width: 21rem;
+    left: 50%;
+    transform: translate(-50%,0%);
+    width: 80%;
     height: 5.8rem;
+    color: rgb(16, 16, 16) !important;
 }
 #legenda h1 {
     font-family: 'Inter';
-    font-size: 2rem;
-    padding: 0 15px;
-    position: absolute;
+    font-size: 3rem;
+    font-weight: 700;
 }
 #legenda p {
-    padding: 0 15px;
-    margin-top: 45px;
     font-size: 1rem;
     font-family: 'Inter';
     font-weight: 500;
-    position: absolute;
     text-align: justify;
 }
 
@@ -206,6 +227,7 @@ html {
 
 #container {
     width: 100%;
+    margin-top: 30px;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -222,16 +244,23 @@ html {
 }
 
 .photo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 30%;
-    height: 84%;
-    display: block;
-    margin-top: 0.6875rem;
-    margin-left: 0.05rem;
+
+
+    height: auto;
+}
+
+span h1{
+    margin-bottom: 10px;
+    color: rgb(16, 16, 16);
+    font-weight: 700 !important;
 }
 
 .frame1 {
-    height: 100%;
-    margin: 0 80px 0 80px;
+    height: 80%;
     list-style: none;
     /* display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -241,28 +270,28 @@ html {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 1.5rem;
+    gap: 1.1rem;
     align-items: center;
     justify-content: center;
 }
 .frame1 a {
     background: #D55208;
     display: flex;
-    flex-direction: column;
-    text-align: center;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
     text-decoration: none;
     line-height: 3.75rem;
     margin-bottom: 1.5rem;
-    width: 21.875em;
-    height: 7.5em;
+    width: 23.875em;
+    height: 8.5em;
     border-radius: 0.5rem;
     font-size: 1rem;
     background-position: center;
     transition: 0.3s ease-out;
 }
 .frame1 a:hover {
-    border: 1px solid #E0E0E0;
-    background: #FF8000;
+    background: #D7601D;
     transition: 0.3s ease-out;
     transform: scale(1.05);
 }
@@ -270,37 +299,41 @@ html {
     margin-bottom: 14px;
 }
 .ident1 {
-    width: 70%;
-    height: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    height: 100%;
     font-family: 'Inter';
     color: #E0E0E0;
-    text-align: center;
-    line-height: 2.5rem;
+    text-align: left;
+    margin-left: -25px;
+    line-height: 1.35rem;
     font-size: 0.85rem;
-    margin-left: 6.375rem;
-    margin-top: -5.75rem;
 }
 .ident2 {
-    width: 70%;
-    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    height: 100%;
     font-family: 'Inter';
     color: #E0E0E0;
-    text-align: center;
-    line-height: 2.0rem;
+    text-align: left;
+    line-height: 1.35rem;
     font-size: 0.85rem;
-    margin-left: 6.375rem;
-    margin-top: -6.25rem; 
 }
 .ident3 {
-    width: 70%;
-    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    height: 100%;
     font-family: 'Inter';
     color: #E0E0E0;
-    text-align: center;
-    line-height: 1.7rem;
+    text-align: left;
+    line-height: 1.35rem;
     font-size: 0.85rem;
-    margin-left: 6.375rem;
-    margin-top: -6.6rem; 
 }
 footer {
     background: #D55208;
@@ -313,8 +346,15 @@ footer {
     bottom: 0;
 }
 footer h4 {
+    width: 70%;
     text-align: center;
     color: #FFF;
-    font-size: 16px;
-    font-family: 'Inter';
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.inputDateHours{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
 }
