@@ -233,11 +233,17 @@ html {
     height: 100%;
     margin: 0 80px 0 80px;
     list-style: none;
-    display: grid;
+    /* display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-gap: 10px;
     justify-items: center;
-    justify-content: space-around;
+    justify-content: space-around; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
 }
 .frame1 a {
     background: #D55208;
@@ -252,10 +258,13 @@ html {
     border-radius: 0.5rem;
     font-size: 1rem;
     background-position: center;
+    transition: 0.3s ease-out;
 }
 .frame1 a:hover {
     border: 1px solid #E0E0E0;
     background: #FF8000;
+    transition: 0.3s ease-out;
+    transform: scale(1.05);
 }
 .frame1 li a {
     margin-bottom: 14px;
