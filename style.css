@@ -203,9 +203,20 @@ html {
 }
 
 /*Area coordenador CSS*/
-.area-coordenadores {
+
+#container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.05rem;
     position: absolute;
     top: 11rem;
+}
+.area-coordenadores {
+    /*position: ;
+    top: 11rem;*/
     width: 100%;
     height: 56.7%;
 }
@@ -283,11 +294,14 @@ html {
     margin-top: -6.6rem; 
 }
 footer {
-    border: 2px solid blue;
     background: #D55208;
-    position: absolute;
     width: 100%;
-    bottom: -44rem;
+    height: 7rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
 }
 footer h4 {
     text-align: center;
