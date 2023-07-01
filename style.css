@@ -90,6 +90,7 @@ body {
     margin: auto;
 }
 /*Configuração mobile*/
+
 @media (max-width: 600px) {
     #logo-desktop {
         display: none;
@@ -213,7 +214,7 @@ html {
 }
 #legenda h1 {
     font-family: 'Inter';
-    font-size: 3rem;
+    font-size: 1.4rem;
     font-weight: 700;
 }
 #legenda p {

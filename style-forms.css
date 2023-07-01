@@ -63,8 +63,8 @@ body {
     background: #d45208;
 }
 #logo-desktop img{
-    width: 140px;
-    margin: 0 4px 4px 0;
+    width: 60%;
+    margin-top: 4px;
 }
 #logo-mobile {
     display: none;
@@ -90,11 +90,6 @@ body {
     #logo-mobile {
         height: auto;
         display: block;
-    }
-
-    #logo-mobile img {
-        width: 52px;
-        margin-bottom: 5px;
     }
 
     #menu-navegacao {
@@ -138,15 +133,20 @@ body {
         margin-top: 3.9px;
     }
     #icone-menu {
-        color: #E0E0E0;
+        color: #fdfdfd;
         border-top: 8px solid;
         width: 35px;
+        border-radius: 3px 3px 3px 3px !important;
         margin-bottom: 5px
+    }
+    #icone-menu::after{
+        border-radius: 0px 0px 3px 3px;
     }
     #icone-menu::after, #icone-menu::before {
         content: '';
         display: block;
         width: 35px;
+
         height: 8px;
         background: currentColor;
         margin-top: 5px;
@@ -158,11 +158,16 @@ body {
     }
     #navegacao.active #icone-menu::before {
         transform: rotate(135deg);
+        border-radius: 3px;
     }
     #navegacao.active #icone-menu::after {
         transform: rotate(-135deg);
+        border-radius: 3px;
         top: -12px;
     }
+}
+#logo-mobile img {
+    width: 65%;
 }
 
 @media (max-width: 425px) {
@@ -173,9 +178,6 @@ body {
 @media (max-width: 333px) {
 html {
     font-size: 75%;
-}
-#logo-mobile img {
-    width: 20%;
 }
 }
 

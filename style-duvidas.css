@@ -1,12 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     outline: 0;
-}
-body * {
-    font-family: 'Inter';
-    font-style: normal;
+    user-select: none;
+    font-family: 'Sora', sans-serif !important;
 }
 
 body {
@@ -14,6 +14,8 @@ body {
     background-position: top center;
     background-size: cover;
     font-size: 1.6rem;
+    width: 100%;
+    height: 100%;
 }
 .boxshadow .button {
     -webkit-box-shadow: 0px 0px 5px #666;
@@ -21,10 +23,10 @@ body {
         -ms-box-shadow: 0px 0px 5px #666;
          -o-box-shadow: 0px 0px 5px #666;
             box-shadow: 0px 0px 5px #666;
-}
+    }
  .no-boxshadow .button {
     background: url(sombra.png) no-repeat;
-}
+    }
 /*margin topo | direita | inferior | esquerda
          topo | horizontal | inferior
          vertical | horizontal
@@ -36,15 +38,27 @@ body {
 #cabecalho {
     box-sizing: border-box;
     display: flex;
+    align-items: center;
     position: absolute;
     width: 100%;
     height: 4rem;
     background: #D55208 top center/cover;
     box-shadow: rgba(0, 0, 0, 0.05);
-    align-items: flex-start;
     padding: 0.5rem;
     justify-content: space-around;
 }
+
+::-webkit-scrollbar{
+    width: 5px;
+    height: 8px;
+    background-color: #aaa; /* or add it to the track */
+}
+
+::-webkit-scrollbar-thumb{
+    background: #D55208;
+}
+
+
 
 #cabecalho ul li a{
     font-family: 'Inter';
@@ -52,15 +66,12 @@ body {
     font-size: 1rem;
     color: white;
     text-decoration: none;
-    transition: background 0.2s;
 }
 #cabecalho ul li a:hover {
-    border: 1px solid #E0E0E0;
     background: #d45208;
 }
 #logo-desktop img{
     width: 140px;
-    margin: 0 4px 4px 0;
 }
 #logo-mobile {
     display: none;
@@ -86,11 +97,6 @@ body {
     #logo-mobile {
         height: auto;
         display: block;
-    }
-
-    #logo-mobile img {
-        width: 52px;
-        margin-bottom: 5px;
     }
 
     #menu-navegacao {
@@ -134,15 +140,20 @@ body {
         margin-top: 3.9px;
     }
     #icone-menu {
-        color: #E0E0E0;
+        color: #fdfdfd;
         border-top: 8px solid;
         width: 35px;
+        border-radius: 3px 3px 3px 3px !important;
         margin-bottom: 5px
+    }
+    #icone-menu::after{
+        border-radius: 0px 0px 3px 3px;
     }
     #icone-menu::after, #icone-menu::before {
         content: '';
         display: block;
         width: 35px;
+
         height: 8px;
         background: currentColor;
         margin-top: 5px;
@@ -154,9 +165,11 @@ body {
     }
     #navegacao.active #icone-menu::before {
         transform: rotate(135deg);
+        border-radius: 3px;
     }
     #navegacao.active #icone-menu::after {
         transform: rotate(-135deg);
+        border-radius: 3px;
         top: -12px;
     }
 }
@@ -170,25 +183,24 @@ body {
 html {
     font-size: 75%;
 }
-#logo-mobile img {
-    width: 20%;
-}
+
 }
 .informacao {
     border: 1px solid red;
-    position: absolute;
     top: 4.2rem;
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: auto;
 }
 .container {
-    border: 1px solid green;
-    display: grid;
-    width: 70%;
-    height: 100%;
-    margin: 0 190px 0;
-    justify-items: center;
-    justify-content: space-around;
+    width: 100%;
+    margin-top: 30px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.05rem;
+    position: absolute;
+    top: 3rem;
 }
 .container p {
     text-align: justify;
