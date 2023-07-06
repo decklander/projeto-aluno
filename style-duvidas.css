@@ -177,15 +177,13 @@ body {
 }
 @media (max-width: 333px) {
 html {
-    font-size: 75%;
+    font-size: 90%;
 }
 }
 .informacao {
     top: 4.2rem;
     width: 80%;
     height: auto;
-    border: 3px solid #d45208;
-    border-radius: 0.4rem;
 }
 .container {
     width: 100%;
