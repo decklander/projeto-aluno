@@ -7,6 +7,9 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap"
       rel="stylesheet"
     />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário</title>
@@ -71,16 +74,13 @@
                     <input type="text" name="Curso" id="identificacao" placeholder="Curso" list="options-courses" required>
                 </label>
                 <div class="inputDateHours">
-                    <label>
-                        <span>Data:</span>
-                        <br>
-                        <input type="date" name="data" id="identificacaoMetade" min="minDate()" max="maxDate()" required>
-                    </label>
-                    <label style="margin-left: 0.93rem;">
-                        <span>Horário:</span>
-                        <br>
-                        <input type="time" name="data" id="identificacaoMetade" required>
-                    </label>
+                        <label for="dateInput" id="editData">Data:</label>
+                        <input type="date" id="dateInput" name="date" min="" max="" required>
+                
+                        <label for="timeInput" id="editTime" disabled>Horários disponíveis:</label>
+                        <select id="timeInput" name="time" disabled>
+                            <!-- Horários disponíveis serão adicionados dinamicamente com JavaScript -->
+                        </select>
                 </div>
                 <label>
                     <span>Observação:</span>
@@ -110,6 +110,6 @@
     <option value="Relatório de Estágio">Relatório de Estágio</option>
     <option value="Estagio">Assinatura de Contrato</option>
 </select> -->
-<script src="script-forms.js"></script>
+<script src="script-forms-adaias.js"></script>
 <script src="./script.js"></script>
 </html>

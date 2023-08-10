@@ -177,7 +177,7 @@ body {
 }
 @media (max-width: 333px) {
 html {
-    font-size: 75%;
+    font-size: 70%;
 }
 }
 
@@ -231,14 +231,32 @@ label input {
     border-radius: 10px;
 }
 
-#identificacaoMetade{
-    width: 100%;
-    line-height: 2rem;
-    padding: 10px 25px;
-    border: .5px solid #d4530861;
-    border-radius: 10px;  
+#editData{
+    width: 40%;
+    height: 40%;
+    color: #D55208;
+    font-weight: bold;
 }
 
+#editTime {
+    width: 80%;
+    color: #D55208;
+    font-weight: bold;
+}
+
+#dateInput{
+    width: 100%;
+    line-height: 2rem;
+    border: .5px solid #d4530861;
+    border-radius: 10px;
+}
+
+#timeInput{
+    width: 100%;
+    line-height: 2rem;
+    border: .5px solid #d4530861;
+    border-radius: 10px;
+}
 
 .containerFomrs{
     width: 100%;

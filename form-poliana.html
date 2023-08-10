@@ -79,16 +79,13 @@
                     <input type="text" name="Curso" id="identificacao" placeholder="Curso" list="options-courses" required>
                 </label>
                 <div class="inputDateHours">
-                    <label>
-                        <span>Data:</span>
-                        <br>
-                        <input type="date" name="data" id="identificacaoMetade" required>
-                    </label>
-                    <label style="margin-left: 0.93rem;">
-                        <span>Horário:</span>
-                        <br>
-                        <input type="time" name="data" id="identificacaoMetade" required>
-                    </label>
+                    <label for="dateInput" id="editData">Data:</label>
+                    <input type="date" id="dateInput" name="date" min="" max="" required>
+            
+                    <label for="timeInput" id="editTime" disabled>Horários disponíveis:</label>
+                    <select id="timeInput" name="time" disabled>
+                        <!-- Horários disponíveis serão adicionados dinamicamente com JavaScript -->
+                    </select>
                 </div>
                 <label>
                     <span>Observação:</span>
@@ -119,6 +116,6 @@
     <option value="Relatório de Estágio">Relatório de Estágio</option>
     <option value="Estagio">Assinatura de Contrato</option>
 </select> -->
-<script src="script-forms.js"></script>
+<script src="script-forms-poliana.js"></script>
 <script src="./script.js"></script>
 </html>
