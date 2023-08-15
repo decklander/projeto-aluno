@@ -27,51 +27,37 @@ function generateTimes(startTime, endTime) {
 
 // Definir os horários disponíveis para cada dia da semana
 const availableTimes = {
-    0: generateTimes('08:30', '10:30').concat(generateTimes('18:30', '20:00')),
-    1: generateTimes('18:00', '20:00'),
-    2: generateTimes('08:00', '10:00'),
-    3: generateTimes('18:00', '20:00'),
+    0: generateTimes('08:30', '10:10').concat(generateTimes('18:30', '19:50')),
+    1: generateTimes('18:00', '19:40'),
+    2: generateTimes('08:00', '09:40'),
+    3: generateTimes('18:00', '19:40'),
 };
 
 // Array para armazenar os horários já agendados
 const bookedTimes = [];
 
-// Adiciona os dias disponíveis no calendário
 dateInput.setAttribute('min', minDate);
 dateInput.setAttribute('max', maxDate);
 
-// Habilita a seleção dos horários quando uma data é escolhida
 dateInput.addEventListener('input', function () {
     const selectedDate = new Date(this.value);
     const dayOfWeek = selectedDate.getDay();
 
     if (allowedDaysOfWeek.includes(dayOfWeek)) {
         const today = new Date();
-        if (selectedDate.toDateString() === today.toDateString()) {
-            // A data é o dia atual, verifica se ainda há horários disponíveis
+        const isToday = selectedDate.toDateString() === today.toDateString();
+
+        if (isToday) {
             const hasAvailableTimes = availableTimes[dayOfWeek].length > 0;
-            if (hasAvailableTimes) {
-                timeInput.disabled = false;
-                populateTimeOptions(availableTimes[dayOfWeek], selectedDate);
-            } else {
-                timeInput.disabled = true;
-                timeInput.innerHTML = '';
-            }
+            timeInput.disabled = !hasAvailableTimes;
+            populateTimeOptions(availableTimes[dayOfWeek]);
         } else {
             timeInput.disabled = false;
-            populateTimeOptions(availableTimes[dayOfWeek], selectedDate);
+            populateTimeOptions(availableTimes[dayOfWeek]);
         }
     } else {
         timeInput.disabled = true;
         timeInput.innerHTML = '';
-    }
-});
-
-// Verifica se um horário foi selecionado
-timeInput.addEventListener('change', function () {
-    // Mantém a seleção na lista de horários
-    if (this.value) {
-        timeInput.selectedValue = this.value;
     }
 });
 
@@ -93,25 +79,10 @@ document.getElementById('form').addEventListener('submit', function () {
 });
 
 // Função para preencher as opções de horários disponíveis
-function populateTimeOptions(times, selectedDate) {
-    // Remove horários que já passaram do horário local
-    const now = new Date();
-    const currentTime = now.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' });
-
-    const updatedTimes = times.filter(time => {
-        if (selectedDate.toDateString() === now.toDateString()) {
-            // Se for o dia atual, verifica o horário atual
-            const [hours, minutes] = time.split(':');
-            const [currentHours, currentMinutes] = currentTime.split(':');
-            return (hours > currentHours) || (hours === currentHours && minutes >= currentMinutes);
-        } else {
-            return true; // Mantém todos os horários dos dias posteriores
-        }
-    });
-
+function populateTimeOptions(times) {
     timeInput.innerHTML = '';
 
-    for (const time of updatedTimes) {
+    for (const time of times) {
         const option = document.createElement('option');
         option.value = time;
         option.textContent = time;
